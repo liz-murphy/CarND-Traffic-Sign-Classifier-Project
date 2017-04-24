@@ -2,7 +2,7 @@
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
+[image1]: ./DataVisualization/ "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
@@ -33,303 +33,303 @@ signs data set:
 
 
 
-![png](output_9_1.png)
+![png](DataVIsualization/output_9_1.png)
 
 
     Class 1: Speed limit (30km/h), 1980 samples
 
 
 
-![png](output_9_3.png)
+![png](DataVIsualization/output_9_3.png)
 
 
     Class 2: Speed limit (50km/h), 2010 samples
 
 
 
-![png](output_9_5.png)
+![png](DataVIsualization/output_9_5.png)
 
 
     Class 3: Speed limit (60km/h), 1260 samples
 
 
 
-![png](output_9_7.png)
+![png](DataVIsualization/output_9_7.png)
 
 
     Class 4: Speed limit (70km/h), 1770 samples
 
 
 
-![png](output_9_9.png)
+![png](DataVIsualization/output_9_9.png)
 
 
     Class 5: Speed limit (80km/h), 1650 samples
 
 
 
-![png](output_9_11.png)
+![png](DataVIsualization/output_9_11.png)
 
 
     Class 6: End of speed limit (80km/h), 360 samples
 
 
 
-![png](output_9_13.png)
+![png](DataVIsualization/output_9_13.png)
 
 
     Class 7: Speed limit (100km/h), 1290 samples
 
 
 
-![png](output_9_15.png)
+![png](DataVIsualization/output_9_15.png)
 
 
     Class 8: Speed limit (120km/h), 1260 samples
 
 
 
-![png](output_9_17.png)
+![png](DataVIsualization/output_9_17.png)
 
 
     Class 9: No passing, 1320 samples
 
 
 
-![png](output_9_19.png)
+![png](DataVIsualization/output_9_19.png)
 
 
     Class 10: No passing for vehicles over 3.5 metric tons, 1800 samples
 
 
 
-![png](output_9_21.png)
+![png](DataVIsualization/output_9_21.png)
 
 
     Class 11: Right-of-way at the next intersection, 1170 samples
 
 
 
-![png](output_9_23.png)
+![png](DataVIsualization/output_9_23.png)
 
 
     Class 12: Priority road, 1890 samples
 
 
 
-![png](output_9_25.png)
+![png](DataVIsualization/output_9_25.png)
 
 
     Class 13: Yield, 1920 samples
 
 
 
-![png](output_9_27.png)
+![png](DataVIsualization/output_9_27.png)
 
 
     Class 14: Stop, 690 samples
 
 
 
-![png](output_9_29.png)
+![png](DataVIsualization/output_9_29.png)
 
 
     Class 15: No vehicles, 540 samples
 
 
 
-![png](output_9_31.png)
+![png](DataVIsualization/output_9_31.png)
 
 
     Class 16: Vehicles over 3.5 metric tons prohibited, 360 samples
 
 
 
-![png](output_9_33.png)
+![png](DataVIsualization/output_9_33.png)
 
 
     Class 17: No entry, 990 samples
 
 
 
-![png](output_9_35.png)
+![png](DataVIsualization/output_9_35.png)
 
 
     Class 18: General caution, 1080 samples
 
 
 
-![png](output_9_37.png)
+![png](DataVIsualization/output_9_37.png)
 
 
     Class 19: Dangerous curve to the left, 180 samples
 
 
 
-![png](output_9_39.png)
+![png](DataVIsualization/output_9_39.png)
 
 
     Class 20: Dangerous curve to the right, 300 samples
 
 
 
-![png](output_9_41.png)
+![png](DataVIsualization/output_9_41.png)
 
 
     Class 21: Double curve, 270 samples
 
 
 
-![png](output_9_43.png)
+![png](DataVIsualization/output_9_43.png)
 
 
     Class 22: Bumpy road, 330 samples
 
 
 
-![png](output_9_45.png)
+![png](DataVIsualization/output_9_45.png)
 
 
     Class 23: Slippery road, 450 samples
 
 
 
-![png](output_9_47.png)
+![png](DataVIsualization/output_9_47.png)
 
 
     Class 24: Road narrows on the right, 240 samples
 
 
 
-![png](output_9_49.png)
+![png](DataVIsualization/output_9_49.png)
 
 
     Class 25: Road work, 1350 samples
 
 
 
-![png](output_9_51.png)
+![png](DataVIsualization/output_9_51.png)
 
 
     Class 26: Traffic signals, 540 samples
 
 
 
-![png](output_9_53.png)
+![png](DataVIsualization/output_9_53.png)
 
 
     Class 27: Pedestrians, 210 samples
 
 
 
-![png](output_9_55.png)
+![png](DataVIsualization/output_9_55.png)
 
 
     Class 28: Children crossing, 480 samples
 
 
 
-![png](output_9_57.png)
+![png](DataVIsualization/output_9_57.png)
 
 
     Class 29: Bicycles crossing, 240 samples
 
 
 
-![png](output_9_59.png)
+![png](DataVIsualization/output_9_59.png)
 
 
     Class 30: Beware of ice/snow, 390 samples
 
 
 
-![png](output_9_61.png)
+![png](DataVIsualization/output_9_61.png)
 
 
     Class 31: Wild animals crossing, 690 samples
 
 
 
-![png](output_9_63.png)
+![png](DataVIsualization/output_9_63.png)
 
 
     Class 32: End of all speed and passing limits, 210 samples
 
 
 
-![png](output_9_65.png)
+![png](DataVIsualization/output_9_65.png)
 
 
     Class 33: Turn right ahead, 599 samples
 
 
 
-![png](output_9_67.png)
+![png](DataVIsualization/output_9_67.png)
 
 
     Class 34: Turn left ahead, 360 samples
 
 
 
-![png](output_9_69.png)
+![png](DataVIsualization/output_9_69.png)
 
 
     Class 35: Ahead only, 1080 samples
 
 
 
-![png](output_9_71.png)
+![png](DataVIsualization/output_9_71.png)
 
 
     Class 36: Go straight or right, 330 samples
 
 
 
-![png](output_9_73.png)
+![png](DataVIsualization/output_9_73.png)
 
 
     Class 37: Go straight or left, 180 samples
 
 
 
-![png](output_9_75.png)
+![png](DataVIsualization/output_9_75.png)
 
 
     Class 38: Keep right, 1860 samples
 
 
 
-![png](output_9_77.png)
+![png](DataVIsualization/output_9_77.png)
 
 
     Class 39: Keep left, 270 samples
 
 
 
-![png](output_9_79.png)
+![png](DataVIsualization/output_9_79.png)
 
 
     Class 40: Roundabout mandatory, 300 samples
 
 
 
-![png](output_9_81.png)
+![png](DataVIsualization/output_9_81.png)
 
 
     Class 41: End of no passing, 210 samples
 
 
 
-![png](output_9_83.png)
+![png](DataVIsualization/output_9_83.png)
 
 
     Class 42: End of no passing by vehicles over 3.5 metric tons, 210 samples
 
 
 
-![png](output_9_85.png)
+![png](DataVIsualization/output_9_85.png)
 
-
+![png](output_11_0.png)
 
 
 
