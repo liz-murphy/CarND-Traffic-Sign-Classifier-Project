@@ -1,22 +1,5 @@
 #**Traffic Sign Recognition** 
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
-**Build a Traffic Sign Recognition Project**
-
-The goals / steps of this project are the following:
-* Load the data set (see below for links to the project data set)
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
-* Use the model to make predictions on new images
-* Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
-
-
 [//]: # (Image References)
 
 [image1]: ./examples/visualization.jpg "Visualization"
@@ -29,14 +12,8 @@ The goals / steps of this project are the following:
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
----
-###Writeup / README
-
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
-
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+Here is a link to my [project code](https://github.com/liz-murphy/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ###Data Set Summary & Exploration
 
@@ -45,17 +22,317 @@ You're reading it! and here is a link to my [project code](https://github.com/ud
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
-* The size of the validation set is ?
+* The size of training set is 34799
+* The size of the validation set is 4410
 * The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+* The shape of a traffic sign image is (32,32,3)
+* The number of unique classes/labels in the data set is 43
 
 ####2. Include an exploratory visualization of the dataset.
+    Class 0: Speed limit (20km/h), 180 samples
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
 
-![alt text][image1]
+
+![png](output_9_1.png)
+
+
+    Class 1: Speed limit (30km/h), 1980 samples
+
+
+
+![png](output_9_3.png)
+
+
+    Class 2: Speed limit (50km/h), 2010 samples
+
+
+
+![png](output_9_5.png)
+
+
+    Class 3: Speed limit (60km/h), 1260 samples
+
+
+
+![png](output_9_7.png)
+
+
+    Class 4: Speed limit (70km/h), 1770 samples
+
+
+
+![png](output_9_9.png)
+
+
+    Class 5: Speed limit (80km/h), 1650 samples
+
+
+
+![png](output_9_11.png)
+
+
+    Class 6: End of speed limit (80km/h), 360 samples
+
+
+
+![png](output_9_13.png)
+
+
+    Class 7: Speed limit (100km/h), 1290 samples
+
+
+
+![png](output_9_15.png)
+
+
+    Class 8: Speed limit (120km/h), 1260 samples
+
+
+
+![png](output_9_17.png)
+
+
+    Class 9: No passing, 1320 samples
+
+
+
+![png](output_9_19.png)
+
+
+    Class 10: No passing for vehicles over 3.5 metric tons, 1800 samples
+
+
+
+![png](output_9_21.png)
+
+
+    Class 11: Right-of-way at the next intersection, 1170 samples
+
+
+
+![png](output_9_23.png)
+
+
+    Class 12: Priority road, 1890 samples
+
+
+
+![png](output_9_25.png)
+
+
+    Class 13: Yield, 1920 samples
+
+
+
+![png](output_9_27.png)
+
+
+    Class 14: Stop, 690 samples
+
+
+
+![png](output_9_29.png)
+
+
+    Class 15: No vehicles, 540 samples
+
+
+
+![png](output_9_31.png)
+
+
+    Class 16: Vehicles over 3.5 metric tons prohibited, 360 samples
+
+
+
+![png](output_9_33.png)
+
+
+    Class 17: No entry, 990 samples
+
+
+
+![png](output_9_35.png)
+
+
+    Class 18: General caution, 1080 samples
+
+
+
+![png](output_9_37.png)
+
+
+    Class 19: Dangerous curve to the left, 180 samples
+
+
+
+![png](output_9_39.png)
+
+
+    Class 20: Dangerous curve to the right, 300 samples
+
+
+
+![png](output_9_41.png)
+
+
+    Class 21: Double curve, 270 samples
+
+
+
+![png](output_9_43.png)
+
+
+    Class 22: Bumpy road, 330 samples
+
+
+
+![png](output_9_45.png)
+
+
+    Class 23: Slippery road, 450 samples
+
+
+
+![png](output_9_47.png)
+
+
+    Class 24: Road narrows on the right, 240 samples
+
+
+
+![png](output_9_49.png)
+
+
+    Class 25: Road work, 1350 samples
+
+
+
+![png](output_9_51.png)
+
+
+    Class 26: Traffic signals, 540 samples
+
+
+
+![png](output_9_53.png)
+
+
+    Class 27: Pedestrians, 210 samples
+
+
+
+![png](output_9_55.png)
+
+
+    Class 28: Children crossing, 480 samples
+
+
+
+![png](output_9_57.png)
+
+
+    Class 29: Bicycles crossing, 240 samples
+
+
+
+![png](output_9_59.png)
+
+
+    Class 30: Beware of ice/snow, 390 samples
+
+
+
+![png](output_9_61.png)
+
+
+    Class 31: Wild animals crossing, 690 samples
+
+
+
+![png](output_9_63.png)
+
+
+    Class 32: End of all speed and passing limits, 210 samples
+
+
+
+![png](output_9_65.png)
+
+
+    Class 33: Turn right ahead, 599 samples
+
+
+
+![png](output_9_67.png)
+
+
+    Class 34: Turn left ahead, 360 samples
+
+
+
+![png](output_9_69.png)
+
+
+    Class 35: Ahead only, 1080 samples
+
+
+
+![png](output_9_71.png)
+
+
+    Class 36: Go straight or right, 330 samples
+
+
+
+![png](output_9_73.png)
+
+
+    Class 37: Go straight or left, 180 samples
+
+
+
+![png](output_9_75.png)
+
+
+    Class 38: Keep right, 1860 samples
+
+
+
+![png](output_9_77.png)
+
+
+    Class 39: Keep left, 270 samples
+
+
+
+![png](output_9_79.png)
+
+
+    Class 40: Roundabout mandatory, 300 samples
+
+
+
+![png](output_9_81.png)
+
+
+    Class 41: End of no passing, 210 samples
+
+
+
+![png](output_9_83.png)
+
+
+    Class 42: End of no passing by vehicles over 3.5 metric tons, 210 samples
+
+
+
+![png](output_9_85.png)
+
+
+
+
+
 
 ###Design and Test a Model Architecture
 
