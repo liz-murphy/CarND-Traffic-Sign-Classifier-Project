@@ -6,7 +6,7 @@ Here is a link to my [project code](https://github.com/liz-murphy/CarND-Traffic-
 
 ###Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
@@ -17,7 +17,7 @@ signs data set:
 * The shape of a traffic sign image is (32,32,3)
 * The number of unique classes/labels in the data set is 43
 
-####2. Include an exploratory visualization of the dataset.
+#### 2. Include an exploratory visualization of the dataset.
     Class 0: Speed limit (20km/h), 180 samples
 
 
@@ -328,17 +328,30 @@ signs data set:
 - I converted the images to grayscale
 - I used histogram normalization on the images, as many of the images in the visualization have poor contrast and are very dark. Histogram normalization was used in this [basline paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf).
 
-Here is an example of an original image and an augmented image:
+Here are some examples of original images and their preprocessed counterparts:
+![png](DataVIsualization/output_17_0.png)
+
+![png](DataVIsualization/output_17_1.png)
+
+![png](DataVIsualization/output_17_2.png)
+
+![png](DataVIsualization/output_17_3.png)
+
+![png](DataVIsualization/output_17_4.png)
 
 - I augmented the data, but chose to keep the balance of classes as is, because I assumed it reflected the balance of classes in the test set/real world. This assumption would be something to experiment with in future.
 The data augmentation was done by performing a random affine transformation and warp, with scaling between 90 - 110% of the original scale, a rotation between +/- 15 degrees, and a transformation of +/- 2 pixels.
 
 Here is an example of some original images (1st of the row) and their augmentations:
+![png](DataVIsualization/output_18_2.png)
 
+![png](DataVIsualization/output_18_3.png)
 
+![png](DataVIsualization/output_18_4.png)
 
+![png](DataVIsualization/output_18_5.png)
 
-
+![png](DataVIsualization/output_18_6.png)
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -353,7 +366,7 @@ Things to note:
 - Initial experiments with the LeNet architecture showed better results with more output layers on each of the convolutional layers. I used 32 outputs at the first layer and 64 at the second.
 - Unlike the LeNet lab, I used features from the first convolutional layer (with additional pooling) as well as the second as inputs to the fully connected layer. This improved performance.
 
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 - I kept most of the LeNet lab parameters unchanged.
 - The learning rate was set to 0.001 and batch size to 128.
@@ -361,7 +374,7 @@ Things to note:
 - As in the LeNet lab I used the AdamOptimizer for optimization of the gradient descent problem.
 - I used Xavier initialization instead of truncated normal distributions for the weights to cut down number of parameters.
 
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. 
+#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. 
 
 I used an iterative approach to change the model.
 - I began with the LeNet model from the lab solution, it had a validation set accuracy of around 0.87.
@@ -371,11 +384,10 @@ I used an iterative approach to change the model.
 - Finally I forwarded the first convolutional layer outputs to the fully connected layer via some additional max pooling.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* validation set accuracy of 0.984 
+* test set accuracy of 0.968
 
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+The relatively narrow difference between validation and test set accuracy shows the model is working well.
  
 
 ###Test a Model on New Images
@@ -384,42 +396,28 @@ My final model results were:
 
 Here are five German traffic signs that I found on the web:
 
-<img src="examples_from_web/100km.jpg" width="36" height="36"> <img src="examples_from_web/ahead_only.jpg" width="36" height="36"> <img src="examples_from_web/images.jpg" width="36" height="36"> <img src="examples_from_web/priority.jpg" width="36px" height="36"> <img src="examples_from_web/roundabout.jpg" width="36px" height="36">
+<img src="examples_from_web/100km.jpg" width="48" height="48"> <img src="examples_from_web/ahead_only.jpg" width="48" height="48"> <img src="examples_from_web/images.jpg" width="48" height="48"> <img src="examples_from_web/priority.jpg" width="48px" height="48"> <img src="examples_from_web/roundabout.jpg" width="48px" height="48">
 
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Image			                                |     Prediction	        					| 
+|:---------------------------------------------:|:---------------------------------------------:| 
+| Speed limit 100km/h                           | Speed limit 20km/h 							| 
+| Ahead Only  		                        	| Ahead Only									|
+| Right of Way at next intersection				| Slippery Road									|
+| Priority Road	      		                    | Priority Road					 				|
+| Roundabout			                        | Roundabout         							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%. This is poor compared to the test set accuracy of 96.8%. However, if you dig into the softmax probabilities the performance seems a little better ...
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+The wrong predictions included the speed limit sign, which has a deformed top right corner. This may have contributed to the poor performance. As you can see in the graphs below, all top predictions were for speed limit signs, just not the right one.
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+It also got the "Right of way at the next intersection" prediction wrong, mistaking it for a "Slippery Road". These are both black graphics inside a red bordered triangle - so have similar gross features. In this case, the correct class was actually the 2nd highest of the softmax probabilities.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. 
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
-
+The graphs below show the top 5 softmax probablities for each of the 5 signs.
