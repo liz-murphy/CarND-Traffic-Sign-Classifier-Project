@@ -326,43 +326,55 @@ signs data set:
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? 
 
 - I converted the images to grayscale
-- I used histogram normalization (many of the images in the visualization have poor contrast. Also used in this paper).
-- I augmented the data. I kept the balance of classes as is, because it may reflect the balance of classes in the test set.
+- I used histogram normalization on the images, as many of the images in the visualization have poor contrast and are very dark. Histogram normalization was used in this [basline paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf).
 
 Here is an example of an original image and an augmented image:
+
+- I augmented the data, but chose to keep the balance of classes as is, because I assumed it reflected the balance of classes in the test set/real world. This assumption would be something to experiment with in future.
+The data augmentation was done by performing a random affine transformation and warp, with scaling between 90 - 110% of the original scale, a rotation between +/- 15 degrees, and a transformation of +/- 2 pixels.
+
+Here is an example of some original images (1st of the row) and their augmentations:
+
+
+
 
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
+My final model came out of experimenting with the LeNet lab architecture, and experimenting with some ideas from a published [baseline on this dataset] (http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf).
+
+This is a diagram of the final architecture.
 ![png](DataVIsualization/Architecture.001.jpeg)
 
+Things to note:
+- As per [baseline](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) I used grayscale images as inputs.
+- I used 2 convolutional layers.
+- Initial experiments with the LeNet architecture showed better results with more output layers on each of the convolutional layers. I used 32 outputs at the first layer and 64 at the second.
+- Unlike the LeNet lab, I used features from the first convolutional layer (with additional pooling) as well as the second as inputs to the fully connected layer. This improved performance.
 
 ####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-- Kept most of the LeNet lab architecture unchanged
-- Learning Rate 0.001, batch size 128
-- Increased Epochs to 30 - didn't see much change after 15-20.
-- AdamOptimizer
-- Xavier initialization to cut down number of parameters.
+- I kept most of the LeNet lab parameters unchanged.
+- The learning rate was set to 0.001 and batch size to 128.
+- I increased the number of epochs to 30 - but didn't see much change after 15-20.
+- As in the LeNet lab I used the AdamOptimizer for optimization of the gradient descent problem.
+- I used Xavier initialization instead of truncated normal distributions for the weights to cut down number of parameters.
 
 ####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. 
+
+I used an iterative approach to change the model.
+- I began with the LeNet model from the lab solution, it had a validation set accuracy of around 0.87.
+- I started by preprocessing the data, and found a large performance bump from histogram normalization and using grayscale images, this took validation set accuracy to the region of 0.91.
+- I added more outputs to the convolutional layers, this took the accuracy on the validation step to around 0.93
+- I experimented with dropout on the fully connected layers, and implemented image augmentation to have more training data.
+- Finally I forwarded the first convolutional layer outputs to the fully connected layer via some additional max pooling.
 
 My final model results were:
 * training set accuracy of ?
 * validation set accuracy of ? 
 * test set accuracy of ?
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
 
@@ -372,10 +384,8 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+<img src="examples_from_web/100km.jpg" width="36" height="36"> <img src="examples_from_web/ahead_only.jpg" width="36" height="36"> <img src="examples_from_web/images.jpg" width="36" height="36"> <img src="examples_from_web/priority.jpg" width="36px" height="36"> <img src="examples_from_web/roundabout.jpg" width="36px" height="36">
 
-The first image might be difficult to classify because ...
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
