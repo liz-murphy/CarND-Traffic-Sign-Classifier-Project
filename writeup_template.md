@@ -421,3 +421,12 @@ It also got the "Right of way at the next intersection" prediction wrong, mistak
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. 
 
 The graphs below show the top 5 softmax probablities for each of the 5 signs.
+![png](DataVIsualization/output_38_0.png)
+
+![png](DataVIsualization/output_38_1.png)
+
+![png](DataVIsualization/output_38_2.png)
+
+![png](DataVIsualization/output_38_3.png)
+
+![png](DataVIsualization/output_38_4.png)
